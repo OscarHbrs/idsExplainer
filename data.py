@@ -19,3 +19,5 @@ def load_data():
     X_test = test.drop(columns=["id", "attack_cat", "label"])
 
     return X_train, y_train, X_test, y_test, labels.classes_
+
+#ip adresses are not included in test/train data which is why DoS attacks are barely noticed
