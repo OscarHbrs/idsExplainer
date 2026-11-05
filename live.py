@@ -8,10 +8,10 @@ from data import load_data
 from names import NAMES
 
 X_train, y_train, X_test, y_test, attacks = load_data()
-raw_test = pd.read_csv("data/test.csv", encoding="utf-8-sig")
+raw_test = pd.read_csv("data/test.csv.gz", encoding="utf-8-sig")
 
-model = XGBClassifier(n_estimators=100, max_depth=6, n_jobs=4)
-model.fit(X_train, y_train)
+model = XGBClassifier()
+model.load_model("model.ubj")
 explainer = shap.TreeExplainer(model)
 
 right = 0
@@ -33,6 +33,11 @@ while True:
 
     print("\n" + "=" * 50)
     print(f"connection {i}   right so far: {right}/{total}\n")
+
+    #uncomment for test data
+#    for feature in X_test.columns:
+#        print(f"{NAMES[feature]:48} {raw_test.loc[i, feature]}")
+#    print()
 
     for a in range(len(attacks)):
         bar = "#" * int(percents[a] * 30)

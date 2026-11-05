@@ -3,8 +3,8 @@ from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
 
 
 def load_data():
-    train = pd.read_csv("data/train.csv", encoding="utf-8-sig")
-    test = pd.read_csv("data/test.csv", encoding="utf-8-sig")
+    train = pd.read_csv("data/train.csv.gz", encoding="utf-8-sig")
+    test = pd.read_csv("data/test.csv.gz", encoding="utf-8-sig")
 
     words = ["proto", "service", "state"]
     encoder = OrdinalEncoder(handle_unknown="use_encoded_value", unknown_value=-1)
