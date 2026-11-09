@@ -20,4 +20,4 @@ def load_data():
 
     return X_train, y_train, X_test, y_test, labels.classes_
 
-#ip adresses are not included in test/train data which is why DoS attacks are barely noticed
+#DoS is barely noticed because most of it gets guessed as Exploits (2570 of 4089), the model can barely tell them apart
